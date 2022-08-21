@@ -9,3 +9,11 @@ p{
   margin: 0;
 
 }
+
+.container-home{
+  margin-top: 4rem;
+  padding: 0.4rem;
+  background-color: #eee;
+  /* width: 84.8vw; */
+  height: 100vh;
+}
