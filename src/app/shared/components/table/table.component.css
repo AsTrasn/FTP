@@ -1,0 +1,21 @@
+mat-checkbox input:checked {
+  background-color: red;
+}
+
+table {
+  width: 100%;
+}
+
+table td{
+  border: 1px solid #182a8344;
+}
+table td, table th{
+  text-align: center;
+}
+
+.material-symbols-outlined{
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: lighter;
+}

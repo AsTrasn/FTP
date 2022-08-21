@@ -50,3 +50,7 @@ select{
 option{
   padding: 5px 2px;
 }
+
+header ul .username{
+  font-size: 1.1rem;
+}

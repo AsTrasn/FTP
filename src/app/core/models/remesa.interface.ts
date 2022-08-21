@@ -1,4 +1,5 @@
 export interface RemesaElement {
+  position: number;
   ID: string;
   CUSTOMER:string;
   OPERATION:string;

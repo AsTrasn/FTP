@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderuserComponent implements OnInit {
   username = 'Admin'
   clients: Array<string> = ['213456', '32456778', '291199834']
-  
+
+  selected: Array<any> = ['213456']
   constructor() { }
 
   ngOnInit(): void {

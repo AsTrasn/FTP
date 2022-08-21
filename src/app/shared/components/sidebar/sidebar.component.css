@@ -50,3 +50,16 @@
 .side-bar__list li {
   cursor: pointer;
 }
+
+.uil-bars{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+ul li{
+  margin: 1rem 0;
+}
+
+hr{
+  border-color: #4a67f744;
+}

@@ -1,1 +1,67 @@
-<p>Table</p>
+<table mat-table [dataSource]="dataTable" class="mat-elevation-z8">
+
+  <!-- Checkbox Column -->
+  <!-- <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container> -->
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+  </ng-container>
+
+  <!-- CLIENT Column -->
+  <ng-container matColumnDef="customer">
+    <th mat-header-cell *matHeaderCellDef> CLIENTE </th>
+    <td mat-cell *matCellDef="let element"> {{element.CUSTOMER}}</td>
+  </ng-container>
+
+  <!-- OPERATION Column -->
+  <ng-container matColumnDef="operation">
+    <th mat-header-cell *matHeaderCellDef> OPERACION </th>
+    <td mat-cell *matCellDef="let element"> {{element.OPERATION}} </td>
+  </ng-container>
+
+  <!-- REMESA Column -->
+  <ng-container matColumnDef="remesa">
+    <th mat-header-cell *matHeaderCellDef> REMESA </th>
+    <td mat-cell *matCellDef="let element"> {{element.REMESA}} </td>
+  </ng-container>
+
+  <!-- MANIFIEST Column -->
+  <ng-container matColumnDef="manifiest">
+    <th mat-header-cell *matHeaderCellDef> MANIFIESTO </th>
+    <td mat-cell *matCellDef="let element"> {{element.MANIFIESTO}} </td>
+  </ng-container>
+
+  <!-- DATE Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> FECHA </th>
+    <td mat-cell *matCellDef="let element"> {{element.DATE}} </td>
+  </ng-container>
+
+  <!-- ACCTIONS Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
+    <td mat-cell *matCellDef="let element"><span class="material-symbols-outlined" (click)="downloadRemesa(element)">picture_as_pdf</span> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
