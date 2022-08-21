@@ -1,0 +1,11 @@
+.home--wrapper{
+  margin: 0 0 0 14rem;
+  background: var(--ligth);
+  min-height: 100vh;
+}
+
+p{
+  padding: 0;
+  margin: 0;
+
+}

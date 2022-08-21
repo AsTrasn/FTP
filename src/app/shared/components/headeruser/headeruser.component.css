@@ -1,0 +1,52 @@
+header {
+  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* z-index: -1; */
+  height: 4rem;
+  border-top: solid 1px var(--color-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: center;
+  color: var(--ligth);
+}
+
+header ul{
+  list-style: none;
+  display: flex;
+}
+
+
+header ul li{
+  padding: 0 1rem;
+}
+
+.middle-li{
+  border-right: 2px solid var(--ligth);
+  border-left: 2px solid var(--ligth);
+}
+
+button{
+  background: var(--primary-color);
+  border: none;
+  font-size: var(--font-2);
+  color: var(--ligth);
+  font-family: var(font-family-1);
+  font-weight: normal;
+  cursor: pointer;
+}
+
+select{
+  background: var(--primary-color);
+  border: none;
+  color: var(--ligth);
+  font-size: var(--font-2);
+  padding: 3px 5px;
+  margin-left: 0.3rem;
+}
+
+option{
+  padding: 5px 2px;
+}

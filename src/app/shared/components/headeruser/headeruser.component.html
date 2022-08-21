@@ -1,0 +1,16 @@
+<header class="media-player">
+  <ul>
+    <li>{{username}}</li>
+    <li class="middle-li">
+      <label for="client">Cliente: </label>
+      <select name="client" id="client" >
+        <option *ngFor="let client of clients" value="{{client}}">{{client}}</option>
+      </select>
+    </li>
+    <li>
+      <button>
+        Salir <i class="uil uil-signout"></i>
+      </button>
+    </li>
+  </ul>
+</header>
