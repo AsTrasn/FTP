@@ -7,7 +7,7 @@ import { AuthPagesComponent } from './pages/auth-pages/auth-pages.component';
 
 @NgModule({
   declarations: [
-    AuthPagesComponent
+    AuthPagesComponent,
   ],
   imports: [
     CommonModule,

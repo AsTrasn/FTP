@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
     defaultOptions: Array<any>
   } = { defaultOptions: []}
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.mainMenu.defaultOptions=[
@@ -20,22 +21,21 @@ export class SidebarComponent implements OnInit {
         icon: 'uil uil-estate',
         router: ['/']
       },
-      {
-        name: 'Admin',
-        icon: 'uil uil-shield-exclamation',
-        router: ['/', 'admin']
-      },
+      // {
+      //   name: 'Admin',
+      //   icon: 'uil uil-shield-exclamation',
+      //   router: ['/', 'admin']
+      // },
       {
         name: 'Agregar Usuario',
         icon: 'uil uil-plus',
-        router: ['/', 'agregar-usuario']
+        router: ['/', 'register']
       },
       {
         name: 'Actualizar Usuario',
         icon: 'uil uil-edit-alt',
-        router: ['/', 'editar-usuario']
+        router: ['/', 'actualizar']
       },
     ]
   }
-
 }

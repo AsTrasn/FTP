@@ -6,7 +6,8 @@ import { HeaderuserComponent } from './components/headeruser/headeruser.componen
 import { TableComponent } from './components/table/table.component';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table'
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox'
     CommonModule,
     FormsModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    RouterModule
   ],
   exports: [
     SidebarComponent,
     FooterComponent,
+    HeaderuserComponent,
     TableComponent,
-    HeaderuserComponent
   ]
 })
 export class SharedModule { }
