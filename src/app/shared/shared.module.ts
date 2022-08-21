@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { RouterModule } from '@angular/router';
+import { OrderlistPipe } from './pipes/orderlist.pipe';
 
 
 @NgModule({
@@ -16,19 +17,21 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderuserComponent,
     TableComponent,
+    OrderlistPipe,
   ],
   imports: [
     CommonModule,
     FormsModule,
     MatTableModule,
     MatCheckboxModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     SidebarComponent,
     FooterComponent,
     HeaderuserComponent,
     TableComponent,
+    OrderlistPipe
   ]
 })
 export class SharedModule { }

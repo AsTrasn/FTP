@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'actualizar',
     loadChildren: () => import('@modules/updateuser/updateuser.module').then(m => m.UpdateuserModule)
   },
+  {
+    path: '**',
+    redirectTo: '/'
+  }
 ];
 
 @NgModule({

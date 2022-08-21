@@ -8,9 +8,14 @@ header {
   border-top: solid 1px var(--color-2);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-content: center;
   color: var(--ligth);
+}
+
+.logo-ftp{
+  margin-left: 15rem;
+  margin-bottom: 0;
 }
 
 header ul{

@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-import { AuthRoutingModule } from './auth-routing.module';
-import { AuthPagesComponent } from './pages/auth-pages/auth-pages.component';
+import { AuthRoutingModule } from './auth-routing.module'
+import { AuthPagesComponent } from './pages/auth-pages/auth-pages.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AuthPagesComponent } from './pages/auth-pages/auth-pages.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

@@ -4,9 +4,13 @@ import { AuthPagesComponent } from './pages/auth-pages/auth-pages.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: AuthPagesComponent
   },
+  {
+    path: '**',
+    redirectTo: '/auth'
+  }
 ];
 
 @NgModule({
