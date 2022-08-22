@@ -21,40 +21,90 @@
   <!-- ID Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
   <!-- CLIENT Column -->
   <ng-container matColumnDef="customer">
     <th mat-header-cell *matHeaderCellDef> CLIENTE </th>
-    <td mat-cell *matCellDef="let element"> {{element.CUSTOMER}}</td>
+    <td mat-cell *matCellDef="let element"> {{element.cliente}}</td>
   </ng-container>
 
   <!-- OPERATION Column -->
   <ng-container matColumnDef="operation">
     <th mat-header-cell *matHeaderCellDef> OPERACION </th>
-    <td mat-cell *matCellDef="let element"> {{element.OPERATION}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.tipoOperacion}} </td>
   </ng-container>
 
   <!-- REMESA Column -->
-  <ng-container matColumnDef="remesa">
-    <th mat-header-cell *matHeaderCellDef> REMESA </th>
-    <td mat-cell *matCellDef="let element"> {{element.REMESA}} </td>
+  <ng-container matColumnDef="No. remesa">
+    <th mat-header-cell *matHeaderCellDef>No. REMESA </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreRemesa}} </td>
   </ng-container>
 
   <!-- MANIFIEST Column -->
-  <ng-container matColumnDef="manifiest">
-    <th mat-header-cell *matHeaderCellDef> MANIFIESTO </th>
-    <td mat-cell *matCellDef="let element"> {{element.MANIFIESTO}} </td>
+  <ng-container matColumnDef="destino">
+    <th mat-header-cell *matHeaderCellDef> DESTINO </th>
+    <td mat-cell *matCellDef="let element"> {{element.destino}} </td>
   </ng-container>
 
   <!-- DATE Column -->
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> FECHA </th>
-    <td mat-cell *matCellDef="let element"> {{element.DATE}} </td>
+  <ng-container matColumnDef="conductor">
+    <th mat-header-cell *matHeaderCellDef> CONDUCTOR </th>
+    <td mat-cell *matCellDef="let element"> {{element.conductor}} </td>
   </ng-container>
 
   <!-- ACCTIONS Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> FECHA CUMPLIDO </th>
+    <td mat-cell *matCellDef="let element"> {{element.Fecha_Cumplido}} </td>
+  </ng-container>
+
+  <!-- eco state Column -->
+  <ng-container matColumnDef="eco">
+    <th mat-header-cell *matHeaderCellDef>ESTADO OPERATIVO</th>
+    <td mat-cell *matCellDef="let element" [ngSwitch]="element.estadoOperativo">
+        <span *ngSwitchCase="-99">ANULADO</span>
+        <span *ngSwitchCase="-2">DEPURADO</span>
+        <span *ngSwitchCase="1">SIN CONFIRMAR</span>
+        <span *ngSwitchCase="2">CONFIRMADO</span>
+        <span *ngSwitchCase="3">ASIGNDO</span>
+        <span *ngSwitchCase="4">CARGANDO</span>
+        <span *ngSwitchCase="5">EN TRANSITO</span>
+        <span *ngSwitchCase="6">DESCARGANDO</span>
+        <span *ngSwitchCase="7">ENTREGADO</span>
+        <span *ngSwitchCase="8">CUMPLIDO</span>
+        <span *ngSwitchCase="10">BOLSA DE SEGURIDAD</span>
+        <span *ngSwitchCase="13">SINIESTRO</span>
+        <span *ngSwitchCase="14">BLOQUEADO</span>
+        <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
+    </td>
+</ng-container>
+  
+  <!-- etf state Column -->
+  <ng-container matColumnDef="etf">
+    <th mat-header-cell *matHeaderCellDef>ESTADO FACTURACION</th>
+    <td mat-cell *matCellDef="let element" [ngSwitch]="element.estadoFacturacion">
+        <span *ngSwitchCase="-99">ANULADO</span>
+        <span *ngSwitchCase="-2">DEPURADO</span>
+        <span *ngSwitchCase="1">EN ESPERA</span>
+        <span *ngSwitchCase="2">PUNTEADA</span>
+        <span *ngSwitchCase="3">VALIDADA</span>
+        <span *ngSwitchCase="4">FACT PROVISIONAL</span>
+        <span *ngSwitchCase="5">FACT DEFINITIVA</span>
+        <span *ngSwitchCase="6">FACT PARCIAL</span>
+        <span *ngSwitchCase="7">FVP</span>
+        <span *ngSwitchCase="8">FACSN</span>
+        <span *ngSwitchCase="9">VALIDADA NIV SUP</span>
+        <span *ngSwitchCase="10">FACTURADO POR MANDATO</span>
+        <span *ngSwitchCase="13">SINIESTRO</span>
+        <span *ngSwitchCase="14">BLOQUEADO</span>
+        <span *ngSwitchCase="30">NO FACTURABLE</span>
+        <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
+    </td>
+</ng-container>
+
+  <!-- actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
     <td mat-cell *matCellDef="let element"><span class="material-symbols-outlined" (click)="downloadRemesa(element)">picture_as_pdf</span> </td>
@@ -71,5 +121,3 @@
                (page)="pageEvent = $event"
                aria-label="Select page">
 </mat-paginator>
-
-<p>{{client}}</p>

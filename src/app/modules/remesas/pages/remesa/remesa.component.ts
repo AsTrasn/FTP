@@ -18,7 +18,7 @@ export class RemesaComponent implements OnInit, OnDestroy {
   });
 
 
-  remesaData!:RemesaElement[]
+  remesaData!:any
   clientId:string = ''
 
   listObservers$: Array<Subscription> = []
@@ -26,11 +26,12 @@ export class RemesaComponent implements OnInit, OnDestroy {
   constructor(private remesaSvc: RemesasService, private sendDataSvc: SendDataService) { }
 
   ngOnInit(): void {
-    this.loadData()
+    this.loadData(null, this.clientId)
 
     const observer1$:Subscription = this.sendDataSvc.callback.subscribe(
       (response:string) => {
         this.clientId = response
+        this.loadData(null, this.clientId)
       }
     )
 
@@ -38,11 +39,10 @@ export class RemesaComponent implements OnInit, OnDestroy {
       async (response:string) =>{
         console.log('Recibiendo busqueda', response)
         if(response !== ''){
-          this.remesaData = [] //TODO: Si el response es diferente vacio hace la peticion para buscar las remesa y las asigna al remesaData.
-          // this.remesaData = response de busqueda por remesa
+          this.remesaData = this.loadData(response, this.clientId)
         }else{
           try {
-            this.loadData()
+            this.loadData(null, this.clientId)
           } catch (error) {
             console.log(error)
           }
@@ -57,10 +57,12 @@ export class RemesaComponent implements OnInit, OnDestroy {
     this.listObservers$.forEach(subs => subs.unsubscribe)
   }
 
-  loadData(): void{
-   this.remesaSvc.getAllRem$()
-    .subscribe((response: RemesaElement[]) => {
-      this.remesaData = response
+  loadData(remname:string | null = null, clientId: string | null = null): void{
+   this.remesaSvc.getAllRem$(remname, clientId)
+    .subscribe((response: RemesaElement) => {
+      let data: any
+      data = response.Remesas
+      this.remesaData = data
     })
   }
 }

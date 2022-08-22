@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@modules/auth/services/auth.service';
+import { Component, OnInit } from '@angular/core'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { AuthService } from '@modules/auth/services/auth.service'
+
 
 @Component({
   selector: 'app-auth-pages',
@@ -8,6 +9,7 @@ import { AuthService } from '@modules/auth/services/auth.service';
   styleUrls: ['./auth-pages.component.css']
 })
 export class AuthPagesComponent implements OnInit {
+  errorSession: boolean = false
   formLogin: FormGroup = new FormGroup({})
   constructor(private authSvc: AuthService) { }
 
@@ -27,5 +29,12 @@ export class AuthPagesComponent implements OnInit {
   sendLogin(): void{
     const {username, password} = this.formLogin.value
     this.authSvc.login(username, password)
+    .subscribe((response) => {
+      console.log(response)
+    },
+    err=>{
+      this.errorSession = true
+      console.log(err.error.message)
+    })
   }
 }
