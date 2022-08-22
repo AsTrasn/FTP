@@ -23,4 +23,8 @@ export class HeaderuserComponent implements OnInit {
   sendData($event:any){
     this.sendDataSvc.callback.emit($event)
   }
+
+  searchRem($event:any){
+    this.sendDataSvc.searchRem.emit($event)
+  }
 }

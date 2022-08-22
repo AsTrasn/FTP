@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { RemesaElement } from '@core/models/remesa.interface'
 import { Observable, of } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { catchError, map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment'
 
 @Injectable({
@@ -18,10 +17,11 @@ export class RemesasService {
 
   getAllRem$(): Observable<any>{
     return this.httpClient.get(`${this.URL}/remesas`)
-    // .pipe(
-    //   map((dataRaw) => {
-    //     return dataRaw
-    //   })
-    // )
+    .pipe(
+      catchError((err) => {
+        console.log(`Ha ocurrido un error ${err.status} ${err.statusText}`)
+        return of([])
+      })
+    )
   }
 }

@@ -1,5 +1,8 @@
 <header>
-  <h1 class="logo-ftp">FTP AsTrans</h1>
+  <div class="logo-ftp search-container">
+    <h1>FTP AsTrans</h1>
+    <input type="search" id="search" placeholder="Número de remesa" ngModel (ngModelChange)="searchRem($event)">
+  </div>
   <ul>
     <li class="username">{{username}}</li>
     <li class="middle-li">
