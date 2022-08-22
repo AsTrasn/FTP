@@ -4,7 +4,7 @@
     <li class="username">{{username}}</li>
     <li class="middle-li">
       <label for="client">Cliente: </label>
-        <select name="client" id="client" [(ngModel)]="selected">
+        <select ngModel (ngModelChange)="sendData($event)" name="client" id="client" [(ngModel)]="selected">
           <option *ngFor="let client of clients" value="{{client}}">
               {{client}}
           </option>

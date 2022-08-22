@@ -1,25 +1,40 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Input, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { RemesaElement } from '@core/models/remesa.interface';
+import { SendDataService } from '@shared/services/send-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
 
   @Input() dataTable:Array<RemesaElement> = []
 
   displayedColumns: string[] = ['id', 'customer', 'operation', 'remesa', 'manifiest', 'date', 'actions'];
   // dataSource = new MatTableDataSource<RemesaElement>(this.dataTable);
   selection = new SelectionModel<RemesaElement>(true, []);
+  clientId:string = ''
 
-  constructor() {}
+  listObservers$:Array<Subscription> = []
+
+  constructor(private sendDataSvc: SendDataService) {}
 
   ngOnInit(): void {
     console.log(this.dataTable)
+    const observer1$:Subscription = this.sendDataSvc.callback.subscribe(
+      (response:string) => {
+        console.log('recibiendo cliente: ', response)
+        this.clientId = response
+      }
+    )
+    this.listObservers$ = [observer1$]
+  }
+
+  ngOnDestroy(): void {
+    this.listObservers$.forEach(subs => subs.unsubscribe)
   }
 
   downloadRemesa(id:any): void{

@@ -1,6 +1,6 @@
 export interface RemesaElement {
   position: number;
-  ID: string;
+  ID: string | number;
   CUSTOMER:string;
   OPERATION:string;
   REMESA:string;

@@ -1,18 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RemesaElement } from '@core/models/remesa.interface'
-import * as dataRaw from '../../../../data/remesas.json'
+import { RemesasService } from '@modules/remesas/services/remesas.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-remesa',
   templateUrl: './remesa.component.html',
   styleUrls: ['./remesa.component.css']
 })
-export class RemesaComponent implements OnInit {
-  remesaData:Array<RemesaElement> = []
-  constructor() { }
+export class RemesaComponent implements OnInit, OnDestroy {
+
+  remesaData:any
+
+  listObservers$: Array<Subscription> = []
+  constructor(private remesaSvc: RemesasService) { }
 
   ngOnInit(): void {
-    const { data }:any = (dataRaw as any).default
-    this.remesaData = data
+    this.remesaSvc.getAllRem$()
+    .subscribe((response:RemesaElement) => {
+      this.remesaData = response
+      console.log(response)
+    })
+  }
+
+  ngOnDestroy(): void {
+
   }
 }

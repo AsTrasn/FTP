@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { RemesasRoutingModule } from './remesas-routing.module';
 import { RemesaComponent } from './pages/remesa/remesa.component';
-import { TableComponent } from '@shared/components/table/table.component';
 import { SharedModule } from '@shared/shared.module';
 
 
@@ -14,7 +13,7 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     RemesasRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class RemesasModule { }
