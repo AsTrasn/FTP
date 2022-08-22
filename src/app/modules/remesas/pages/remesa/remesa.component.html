@@ -14,5 +14,11 @@
   </mat-form-field> -->
 
   <!-- <p>Selected range: {{range.value | json}}</p> -->
-  <app-table [dataTable]="remesaData" [client]="clientId"></app-table>
+  <app-table [dataTable]="remesaData" [client]="clientId" [pageEvent]="pageEvent"></app-table>
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="pageEvent = $event"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>

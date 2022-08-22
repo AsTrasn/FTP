@@ -15,18 +15,15 @@ export class RemesasService {
 
   }
 
-  getAllRem$(remname:string | null, clientId:string | null): Observable<any>{
+  getAllRem$(remname:string | null, clientId:string | null, page: number | null = 0): Observable<any>{
     let body = remname ? { clienteNumero: clientId, nombreRemesa: remname } : { clienteNumero: clientId }
-    console.log(clientId)
 
-    return this.httpClient.post(`${this.URL}/auth/List?page=0&size=10`, body)
+    return this.httpClient.post(`${this.URL}/auth/List?page=${page}&size=10`, body)
     .pipe(
       map(res => {
-        console.log(res)
         return res
       }),
       catchError((err) => {
-        console.log(`Ha ocurrido un error ${err.status} ${err.statusText}`)
         return of([])
       })
     )
@@ -36,8 +33,8 @@ export class RemesasService {
     let body = { remesa: name, mes: month, año: year }
     return this.httpClient.post(`${this.URL}/auth/files`, body)
     .pipe(
-      map(res =>{
-        console.log(res)
+      map((res:any) =>{
+        return res
       })
     )
   }

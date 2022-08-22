@@ -7,6 +7,7 @@ import { SharedModule } from '@shared/shared.module'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatNativeDateModule } from '@angular/material/core'
     SharedModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule
   ]
 })
 export class RemesasModule { }
