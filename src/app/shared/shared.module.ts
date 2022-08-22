@@ -9,7 +9,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { RouterModule } from '@angular/router';
 import { OrderlistPipe } from './pipes/orderlist.pipe';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { OrderlistPipe } from './pipes/orderlist.pipe';
     MatTableModule,
     MatCheckboxModule,
     RouterModule,
+    MatPaginatorModule,
   ],
   exports: [
     SidebarComponent,

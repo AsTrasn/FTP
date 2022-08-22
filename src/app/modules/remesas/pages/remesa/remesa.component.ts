@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { RemesaElement } from '@core/models/remesa.interface';
 import { RemesasService } from '@modules/remesas/services/remesas.service';
 import { SendDataService } from '@shared/services/send-data.service';
-import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,11 +11,18 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./remesa.component.css']
 })
 export class RemesaComponent implements OnInit, OnDestroy {
+  // Range datepicker
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+
 
   remesaData!:RemesaElement[]
   clientId:string = ''
 
   listObservers$: Array<Subscription> = []
+
   constructor(private remesaSvc: RemesasService, private sendDataSvc: SendDataService) { }
 
   ngOnInit(): void {
