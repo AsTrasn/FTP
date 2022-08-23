@@ -32,4 +32,10 @@ export class AuthService {
       })
     )
   }
+
+  logout(): void{
+    this.cookie.delete('token')
+    this.cookie.delete('user_info')
+    this.router.navigate(['/auth'])
+  }
 }

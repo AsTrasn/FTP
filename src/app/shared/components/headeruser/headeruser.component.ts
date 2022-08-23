@@ -16,12 +16,12 @@ export class HeaderuserComponent implements OnInit {
   selected: string = this.clients[0]
   clientCodes:any
 
-  constructor(private router: Router, private sendDataSvc: SendDataService, private cookie: CookieService) { }
+  constructor(private router: Router, private sendDataSvc: SendDataService, private cookie: CookieService, private authSvc: AuthService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.sendDataSvc.callback.emit(this.clients[0])
-    }, 500);
+    // setTimeout(() => {
+    //   this.sendDataSvc.callback.emit(this.clients[0])
+    // }, 500);
 
     let user_data = this.cookie.get('user_info')
     this.clientCodes = JSON.parse(user_data)
@@ -39,5 +39,9 @@ export class HeaderuserComponent implements OnInit {
 
   searchRem($event:any){
     this.sendDataSvc.searchRem.emit($event)
+  }
+
+  onLogout(): void{
+    this.authSvc.logout()
   }
 }

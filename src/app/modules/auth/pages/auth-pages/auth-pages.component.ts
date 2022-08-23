@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '@modules/auth/services/auth.service'
-
+// import { SweetAlert }
 
 @Component({
   selector: 'app-auth-pages',

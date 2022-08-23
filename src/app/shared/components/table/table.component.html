@@ -64,54 +64,53 @@
   <ng-container matColumnDef="eco">
     <th mat-header-cell *matHeaderCellDef>ESTADO OPERATIVO</th>
     <td mat-cell *matCellDef="let element" [ngSwitch]="element.estadoOperativo">
-        <span *ngSwitchCase="-99">ANULADO</span>
-        <span *ngSwitchCase="-2">DEPURADO</span>
-        <span *ngSwitchCase="1">SIN CONFIRMAR</span>
-        <span *ngSwitchCase="2">CONFIRMADO</span>
-        <span *ngSwitchCase="3">ASIGNDO</span>
-        <span *ngSwitchCase="4">CARGANDO</span>
-        <span *ngSwitchCase="5">EN TRANSITO</span>
-        <span *ngSwitchCase="6">DESCARGANDO</span>
-        <span *ngSwitchCase="7">ENTREGADO</span>
-        <span *ngSwitchCase="8">CUMPLIDO</span>
-        <span *ngSwitchCase="10">BOLSA DE SEGURIDAD</span>
-        <span *ngSwitchCase="13">SINIESTRO</span>
-        <span *ngSwitchCase="14">BLOQUEADO</span>
-        <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
+      <span *ngSwitchCase="-99">ANULADO</span>
+      <span *ngSwitchCase="-2">DEPURADO</span>
+      <span *ngSwitchCase="1">SIN CONFIRMAR</span>
+      <span *ngSwitchCase="2">CONFIRMADO</span>
+      <span *ngSwitchCase="3">ASIGNDO</span>
+      <span *ngSwitchCase="4">CARGANDO</span>
+      <span *ngSwitchCase="5">EN TRANSITO</span>
+      <span *ngSwitchCase="6">DESCARGANDO</span>
+      <span *ngSwitchCase="7">ENTREGADO</span>
+      <span *ngSwitchCase="8">CUMPLIDO</span>
+      <span *ngSwitchCase="10">BOLSA DE SEGURIDAD</span>
+      <span *ngSwitchCase="13">SINIESTRO</span>
+      <span *ngSwitchCase="14">BLOQUEADO</span>
+      <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
     </td>
-</ng-container>
-  
+  </ng-container>
+
   <!-- etf state Column -->
   <ng-container matColumnDef="etf">
     <th mat-header-cell *matHeaderCellDef>ESTADO FACTURACION</th>
     <td mat-cell *matCellDef="let element" [ngSwitch]="element.estadoFacturacion">
-        <span *ngSwitchCase="-99">ANULADO</span>
-        <span *ngSwitchCase="-2">DEPURADO</span>
-        <span *ngSwitchCase="1">EN ESPERA</span>
-        <span *ngSwitchCase="2">PUNTEADA</span>
-        <span *ngSwitchCase="3">VALIDADA</span>
-        <span *ngSwitchCase="4">FACT PROVISIONAL</span>
-        <span *ngSwitchCase="5">FACT DEFINITIVA</span>
-        <span *ngSwitchCase="6">FACT PARCIAL</span>
-        <span *ngSwitchCase="7">FVP</span>
-        <span *ngSwitchCase="8">FACSN</span>
-        <span *ngSwitchCase="9">VALIDADA NIV SUP</span>
-        <span *ngSwitchCase="10">FACTURADO POR MANDATO</span>
-        <span *ngSwitchCase="13">SINIESTRO</span>
-        <span *ngSwitchCase="14">BLOQUEADO</span>
-        <span *ngSwitchCase="30">NO FACTURABLE</span>
-        <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
+      <span *ngSwitchCase="-99">ANULADO</span>
+      <span *ngSwitchCase="-2">DEPURADO</span>
+      <span *ngSwitchCase="1">EN ESPERA</span>
+      <span *ngSwitchCase="2">PUNTEADA</span>
+      <span *ngSwitchCase="3">VALIDADA</span>
+      <span *ngSwitchCase="4">FACT PROVISIONAL</span>
+      <span *ngSwitchCase="5">FACT DEFINITIVA</span>
+      <span *ngSwitchCase="6">FACT PARCIAL</span>
+      <span *ngSwitchCase="7">FVP</span>
+      <span *ngSwitchCase="8">FACSN</span>
+      <span *ngSwitchCase="9">VALIDADA NIV SUP</span>
+      <span *ngSwitchCase="10">FACTURADO POR MANDATO</span>
+      <span *ngSwitchCase="13">SINIESTRO</span>
+      <span *ngSwitchCase="14">BLOQUEADO</span>
+      <span *ngSwitchCase="30">NO FACTURABLE</span>
+      <span *ngSwitchDefault>ESTADO DESCONOCIDO</span>
     </td>
-</ng-container>
+  </ng-container>
 
   <!-- actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
-    <td mat-cell *matCellDef="let element"><span class="material-symbols-outlined" (click)="downloadRemesa(element)">picture_as_pdf</span> </td>
+    <td mat-cell *matCellDef="let element"><span class="material-symbols-outlined"
+        (click)="downloadRemesa(element)">picture_as_pdf</span> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-      (click)="selection.toggle(row)">
-  </tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
 </table>

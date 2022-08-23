@@ -10,6 +10,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { RouterModule } from '@angular/router';
 import { OrderlistPipe } from './pipes/orderlist.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { DialogComponent } from './components/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HeaderuserComponent,
     TableComponent,
     OrderlistPipe,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCheckboxModule,
     RouterModule,
     MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [
     SidebarComponent,

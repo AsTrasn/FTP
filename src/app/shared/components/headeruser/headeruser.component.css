@@ -13,6 +13,10 @@ header {
   color: var(--ligth);
 }
 
+a{
+  cursor: pointer;
+}
+
 .logo-ftp{
   margin-left: 15rem;
 }
