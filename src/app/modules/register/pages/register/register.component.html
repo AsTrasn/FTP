@@ -15,8 +15,9 @@
                 <input formControlName="password" formControlName="password" required type="password" placeholder="Contraseña" class="form-input">
             </div>
             <div class="form-group">
+                <label for="role">Rol</label>
                 <mat-form-field appearance="fill">
-                    <mat-label>Role</mat-label>
+                    <mat-label>Rol</mat-label>
                     <mat-select [formControl]="toppings" multiple>
                       <mat-select-trigger>
                         {{toppings.value?.[0] || ''}}
@@ -30,10 +31,11 @@
                 <p>{{toppings.value}}</p>
             </div>
             <div class="form-group">
-                <button mat-button (click)="openDialog()">Open dialog</button>
+                <label for="clients">Clientes</label>
+                <button mat-button (click)="openDialog()" class="clients">Asignar clientes</button>
             </div>
             <div class="form-action">
-                <button [disabled]="!formLogin.valid" class="login-btn login social-btn">Iniciar sesión</button>
+                <button [disabled]="!formLogin.valid" class="login-btn login social-btn">Registrar Usuario</button>
             </div>
         </form>
     </div>

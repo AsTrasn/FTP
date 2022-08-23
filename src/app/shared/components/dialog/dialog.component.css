@@ -1,0 +1,12 @@
+ul{
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    height: 50vh;
+    width: 30vw;
+}
+
+mat-form-field{
+    height: 50vh;
+    overflow: auto;
+}

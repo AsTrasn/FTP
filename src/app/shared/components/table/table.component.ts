@@ -1,5 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections'
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core'
+import { MatPaginator } from '@angular/material/paginator'
+import { MatTableDataSource } from '@angular/material/table'
 import { RemesaElement } from '@core/models/remesa.interface'
 import { RemesasService } from '@modules/remesas/services/remesas.service'
 import { SendDataService } from '@shared/services/send-data.service'
@@ -11,20 +13,35 @@ import Swal from 'sweetalert2'
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnChanges {
 
   @Input() dataTable:Array<RemesaElement> = []
   @Input() client:string = ''
   @Input() start:Date| null | undefined = null
   @Input() end:Date | null | undefined = null
+  @Input() spinner:boolean = false
 
   displayedColumns: string[] = ['id', 'customer', 'operation', 'No. remesa', 'destino', 'conductor', 'date', 'eco', 'etf', 'actions']
+  dataSource = new MatTableDataSource<any>(this.dataTable);
   selection = new SelectionModel<RemesaElement>(true, [])
 
   listObservers$:Array<Subscription> = []
   url: any
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   constructor(private remSvc: RemesasService) {}
+
+  ngOnChanges(): void {
+    // this.spinner = false
+    this.dataSource = new MatTableDataSource<any>(this.dataTable);
+    this.dataSource.paginator = this.paginator;
+    this.spinner = this.spinner
+  }
 
   ngOnInit(): void {
   }

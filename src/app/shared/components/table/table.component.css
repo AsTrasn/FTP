@@ -6,21 +6,32 @@ table {
   width: 100%;
 }
 
-table td{
+table td {
   border: 1px solid #182a8344;
 }
-table td, table th{
+
+table td,
+table th {
   text-align: center;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   color: var(--primary-color);
   cursor: pointer;
   font-size: 2rem;
   font-weight: lighter;
 }
 
-table td, table th{
+table td,
+table th {
   padding: 0 1rem;
   font-size: 11px;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 85vh;
 }

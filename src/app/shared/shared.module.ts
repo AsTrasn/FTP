@@ -12,6 +12,12 @@ import { OrderlistPipe } from './pipes/orderlist.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DialogComponent } from './components/dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog'
+import {MatChipsModule} from '@angular/material/chips'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -29,7 +35,14 @@ import {MatDialogModule} from '@angular/material/dialog'
     MatCheckboxModule,
     RouterModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     SidebarComponent,

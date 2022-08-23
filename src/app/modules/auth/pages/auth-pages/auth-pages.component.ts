@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '@modules/auth/services/auth.service'
+import Swal from 'sweetalert2'
 // import { SweetAlert }
 
 @Component({
@@ -30,11 +31,16 @@ export class AuthPagesComponent implements OnInit {
     const {username, password} = this.formLogin.value
     this.authSvc.login(username, password)
     .subscribe((response) => {
-      console.log(response)
+      return response
     },
     err=>{
       this.errorSession = true
-      console.log(err.error.message)
+      Swal.fire({
+        title: 'Error!',
+        text: `${err.error.message}`,
+        icon: 'error',
+
+      })
     })
   }
 }

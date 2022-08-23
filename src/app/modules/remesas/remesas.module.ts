@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     MatNativeDateModule,
     MatPaginatorModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ]
 })
 export class RemesasModule { }

@@ -19,8 +19,9 @@ export class RemesasService {
     let body = remname ? { clienteNumero: clientId, nombreRemesa: remname } : { clienteNumero: clientId }
 
     let url = start && end ? `${this.URL}/remittances/list?page=${page}&size=10&date1=${start}&date2=${end}` : `${this.URL}/remittances/list?page=${page}&size=10`
-
-    return this.httpClient.post(url, body)
+    let url2 = `${this.URL}/remittances/listAllRemesas/`
+    
+    return this.httpClient.post(url2, body)
     .pipe(
       map(res => {
         return res
