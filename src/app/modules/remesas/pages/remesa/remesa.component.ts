@@ -82,7 +82,6 @@ export class RemesaComponent implements OnInit, OnDestroy {
         data = response
         this.remesaData = data
         this.spinner = false
-        console.log('rendering')
       })
   }
 }
