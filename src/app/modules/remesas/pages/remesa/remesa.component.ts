@@ -19,11 +19,10 @@ export class RemesaComponent implements OnInit, OnDestroy {
     end: new FormControl<Date | null>(null),
   });
 
-  memoryData!: any
   remesaData!: any
+  filter:any = null
   clientId: any = ''
   spinner: boolean = false
-  remSeached:string | null = null
 
   listObservers$: Array<Subscription> = []
 
@@ -49,11 +48,18 @@ export class RemesaComponent implements OnInit, OnDestroy {
     const observer2$: Subscription = this.sendDataSvc.searchRem.subscribe(
       async (response: string) => {
         if (response !== '') {
-          // this.remesaData = this.remesaData.filter((el: any) => el.nombreRemesa === response)
-          // this.remSeached = response
+          response.toLocaleUpperCase()
+          
+          if(this.remesaData.length === 0){
+            this.filter = this.remesaData
+          }else{
+            this.filter = this.remesaData.filter(
+              (rem:any) => rem.nombreRemesa.includes(response)
+            )
+          }
         } else {
           try {
-            // this.spinner = true
+            this.filter = null
             this.loadData(null, this.clientId, 0)
           } catch (error) {
             console.log(error)
