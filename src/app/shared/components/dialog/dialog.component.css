@@ -10,3 +10,10 @@ mat-form-field{
     height: 50vh;
     overflow: auto;
 }
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

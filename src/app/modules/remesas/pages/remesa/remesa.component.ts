@@ -23,6 +23,7 @@ export class RemesaComponent implements OnInit, OnDestroy {
   remesaData!: any
   clientId: any = ''
   spinner: boolean = false
+  remSeached:string | null = null
 
   listObservers$: Array<Subscription> = []
 
@@ -48,7 +49,8 @@ export class RemesaComponent implements OnInit, OnDestroy {
     const observer2$: Subscription = this.sendDataSvc.searchRem.subscribe(
       async (response: string) => {
         if (response !== '') {
-          this.remesaData = this.remesaData.filter((el: any) => el.nombreRemesa === response)
+          // this.remesaData = this.remesaData.filter((el: any) => el.nombreRemesa === response)
+          // this.remSeached = response
         } else {
           try {
             // this.spinner = true
@@ -74,6 +76,7 @@ export class RemesaComponent implements OnInit, OnDestroy {
         data = response
         this.remesaData = data
         this.spinner = false
+        console.log('rendering')
       })
   }
 }

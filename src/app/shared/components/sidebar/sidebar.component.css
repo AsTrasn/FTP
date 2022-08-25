@@ -1,10 +1,5 @@
 .side-bar {
-  width: 12rem;
-  height: 100vh;
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
+  height: 100%;
   padding: .5rem 1rem;
   background-color: var(--primary-color);
   color: var(--ligth);

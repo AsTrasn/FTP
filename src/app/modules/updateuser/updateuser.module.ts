@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-import { UpdateuserRoutingModule } from './updateuser-routing.module';
-import { UpdateuserComponent } from './pages/updateuser/updateuser.component';
-
+import { UpdateuserRoutingModule } from './updateuser-routing.module'
+import { UpdateuserComponent } from './pages/updateuser/updateuser.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { UpdateuserComponent } from './pages/updateuser/updateuser.component';
   ],
   imports: [
     CommonModule,
-    UpdateuserRoutingModule
+    UpdateuserRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class UpdateuserModule { }

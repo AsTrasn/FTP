@@ -20,10 +20,12 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() start:Date| null | undefined = null
   @Input() end:Date | null | undefined = null
   @Input() spinner:boolean = false
+  @Input() remSeached:string | null = null
 
   displayedColumns: string[] = ['id', 'customer', 'operation', 'No. remesa', 'destino', 'conductor', 'date', 'eco', 'etf', 'actions']
   dataSource = new MatTableDataSource<any>(this.dataTable);
   selection = new SelectionModel<RemesaElement>(true, [])
+  query:string | null = null
 
   listObservers$:Array<Subscription> = []
   url: any
@@ -44,6 +46,18 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+  }
+
+  searched(column:any):void{
+    this.query = this.remSeached
+    if(this.query && this.query !== null && this.query !== undefined && this.query !== '' && column){
+      console.log(column)
+      console.log(`buscando ${this.query} en la columna ${column}`)
+
+      // this.dataTable.filter(rem => rem.Remesas[0])
+      // let filteredData = this.dataTable.map((rem:any) => console.log(JSON(column)))
+    }
+    this.query = null
   }
 
   downloadRemesa(element:any): void{

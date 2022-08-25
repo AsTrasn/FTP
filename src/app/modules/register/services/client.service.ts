@@ -13,7 +13,7 @@ export class ClientService {
   constructor(private httpClient: HttpClient, private cookie: CookieService) { }
 
   getAllClients$(): Observable<any>{
-    return this.httpClient.get(`${this.URL}/remittances/listCodeClient`)
+    return this.httpClient.post(`${this.URL}/remittances/listCodeClient`, {})
     .pipe(
       map((response:any) =>{
         return response

@@ -32,11 +32,9 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('',[
         Validators.required,
         Validators.email
-      ]),
-      role: new FormControl('',[
-        Validators.required
       ])
     })
+    
     this.getClient()
   }
   
@@ -48,6 +46,7 @@ export class RegisterComponent implements OnInit {
 
   register():void{
     const {username, password} = this.formLogin.value
+    console.log(this.formLogin.value, this.toppings.value)
   }
 
   getClient(){

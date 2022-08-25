@@ -19,10 +19,6 @@ export class HeaderuserComponent implements OnInit {
   constructor(private router: Router, private sendDataSvc: SendDataService, private cookie: CookieService, private authSvc: AuthService) { }
 
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.sendDataSvc.callback.emit(this.clients[0])
-    // }, 500);
-
     let user_data = this.cookie.get('user_info')
     this.clientCodes = JSON.parse(user_data)
     this.clientCodes = Object.values(this.clientCodes.clientCodes[0])

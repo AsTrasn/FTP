@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment'
 import { BehaviorSubject, map, Observable, tap } from 'rxjs'
 import { UserResponse } from '@core/models/user.interface'
-import { JwtHelperService } from '@auth0/angular-jwt'
 import { CookieService } from 'ngx-cookie-service'
 import { Router } from '@angular/router'
 

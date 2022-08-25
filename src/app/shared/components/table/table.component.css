@@ -33,5 +33,5 @@ table th {
   align-items: center;
   justify-content: center;
   align-content: center;
-  height: 85vh;
+  min-height: calc(100vh - 64px - 64px - 32px);
 }
