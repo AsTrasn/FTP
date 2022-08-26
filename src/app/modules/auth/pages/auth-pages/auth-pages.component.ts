@@ -40,6 +40,7 @@ export class AuthPagesComponent implements OnInit {
       return response
     },
     err=>{
+      this.login = false
       this.errorSession = true
       Swal.fire({
         title: 'Error!',

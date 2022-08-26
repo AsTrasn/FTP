@@ -5,13 +5,13 @@ import { BehaviorSubject, map, Observable, tap } from 'rxjs'
 import { UserResponse } from '@core/models/user.interface'
 import { CookieService } from 'ngx-cookie-service'
 import { Router } from '@angular/router'
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false)
   private isAdmin = new BehaviorSubject<boolean>(false)
 
   constructor(private httpClient: HttpClient, private cookie: CookieService, private router: Router) { }
