@@ -16,9 +16,15 @@
             <div *ngIf="errorSession" class="error-login">
                 Error en el usuario o Contraseña
             </div>
-            <div class="form-action">
+            <div class="form-action" *ngIf="!login; else loggin">
                 <button [disabled]="!formLogin.valid" class="login-btn login social-btn">Iniciar sesión</button>
             </div>
         </form>
     </div>
 </div>
+
+<ng-template #loggin>
+    <div class="form-action" *ngIf="login; else loggin">
+        <button type="button" class="login-btn login social-btn">Entrando...</button>
+    </div>
+</ng-template>

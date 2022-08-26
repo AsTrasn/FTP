@@ -12,6 +12,8 @@ import Swal from 'sweetalert2'
 export class AuthPagesComponent implements OnInit {
   errorSession: boolean = false
   formLogin: FormGroup = new FormGroup({})
+  login:boolean = false
+
   constructor(private authSvc: AuthService) { }
 
   ngOnInit(): void {
@@ -28,9 +30,13 @@ export class AuthPagesComponent implements OnInit {
   }
 
   sendLogin(): void{
+    this.login = true
     const {username, password} = this.formLogin.value
     this.authSvc.login(username, password)
     .subscribe((response) => {
+      if(response){
+        this.login = false
+      }
       return response
     },
     err=>{

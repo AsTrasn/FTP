@@ -74,7 +74,7 @@ export class TableComponent implements OnInit, OnChanges {
         if(!res){
           Swal.fire({
             title: 'Error!',
-            text: `La remesa ${nombreRemesa} no tiene un documento asociado o la petición tomo mucho tiempo, si la petición tomo mucho tiempo por favor intentelo luego`,
+            text: `La remesa ${nombreRemesa} no tiene un documento asociado o la petición tomo mucho tiempo, si la petición tomo mucho tiempo por favor inténtelo luego`,
             icon: 'error',
             confirmButtonText: 'Aceptar'
           })
