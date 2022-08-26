@@ -4,7 +4,7 @@
     <input type="search" id="search" placeholder="Número de remesa" ngModel (ngModelChange)="searchRem($event)">
   </div>
   <ul>
-    <li class="username">{{username}}</li>
+    <li class="username">{{gerUsername() | uppercase }}</li>
     <li class="middle-li">
       <label for="client">Cliente: </label>
         <select ngModel (ngModelChange)="sendData($event)" name="client" id="client" [(ngModel)]="selected">

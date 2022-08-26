@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RoleGuard } from '@core/guards/role.guard';
 
 
 const routes: Routes = [
@@ -9,11 +10,19 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('@modules/register/register.module').then(m => m.RegisterModule)
+    loadChildren: () => import('@modules/register/register.module').then(m => m.RegisterModule),
+    data: {
+      role: ['ROLE_ADMIN', 'ROLE_MODERATOR']
+    },
+    canActivate: [RoleGuard]
   },
   {
     path: 'actualizar',
-    loadChildren: () => import('@modules/updateuser/updateuser.module').then(m => m.UpdateuserModule)
+    loadChildren: () => import('@modules/updateuser/updateuser.module').then(m => m.UpdateuserModule),
+    data: {
+      role: ['ROLE_ADMIN', 'ROLE_MODERATOR']
+    },
+    canActivate: [RoleGuard]
   },
   {
     path: '**',

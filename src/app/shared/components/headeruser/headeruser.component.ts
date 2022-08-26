@@ -16,7 +16,7 @@ export class HeaderuserComponent implements OnInit {
   selected: string = this.clients[0]
   clientCodes:any
 
-  constructor(private router: Router, private sendDataSvc: SendDataService, private cookie: CookieService, private authSvc: AuthService) { }
+  constructor(private sendDataSvc: SendDataService, private cookie: CookieService, private authSvc: AuthService) { }
 
   ngOnInit(): void {
     let user_data = this.cookie.get('user_info')
@@ -39,5 +39,9 @@ export class HeaderuserComponent implements OnInit {
 
   onLogout(): void{
     this.authSvc.logout()
+  }
+
+  gerUsername(): string{
+    return this.authSvc.getUsernaeme()
   }
 }

@@ -25,6 +25,9 @@ export class AuthService {
       tap((responseOk:any) => {
         const { accessToken, username, roles, clientCodes, tokenType } = responseOk
         const userInfo = JSON.stringify({username, roles, clientCodes, tokenType})
+        if(roles.includes('ROLE_ADMIN') || roles.includes('ROLE_MODERATOR')) {
+          this.isAdmin.next(true)
+        }
         this.cookie.set('token', accessToken, 4, '/')
         this.cookie.set('user_info', userInfo, 4, '/')
         this.router.navigate(['/'])
@@ -32,9 +35,38 @@ export class AuthService {
     )
   }
 
+  get Admin(): Observable<boolean>{
+    return this.isAdmin.asObservable()
+  }
+
   logout(): void{
     this.cookie.delete('token')
     this.cookie.delete('user_info')
     this.router.navigate(['/auth'])
+    this.isAdmin.next(false)
+  }
+
+  getRole(){
+    let userInfo = this.cookie.get('user_info')
+
+    if(userInfo) {
+      let newInfo = JSON.parse(userInfo && userInfo)      
+      const { roles } = newInfo
+      return roles
+    }
+
+    return false
+  }
+
+  getUsernaeme(){
+    let userInfo = this.cookie.get('user_info')
+
+    if(userInfo) {
+      let newInfo = JSON.parse(userInfo && userInfo)      
+      const { username } = newInfo
+      return username
+    }
+
+    return 'Desconocido'
   }
 }

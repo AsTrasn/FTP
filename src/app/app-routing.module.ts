@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core"
 import { Routes, RouterModule } from "@angular/router"
 import { SessionGuard } from "@core/guards/session.guard"
 import { HomePageComponent } from "@modules/home/pages/home-page/home-page.component"
+import { RoleGuard } from './core/guards/role.guard';
 
 const ROUTES: Routes = [
   {

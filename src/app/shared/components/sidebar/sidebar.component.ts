@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,35 +8,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  isAdmin:boolean = false
 
   mainMenu: {
     defaultOptions: Array<any>
   } = { defaultOptions: []}
 
-  constructor(private router: Router) { }
+  constructor(private authSvc: AuthService) { }
 
   ngOnInit(): void {
-    this.mainMenu.defaultOptions=[
-      {
-        name: 'Inicio',
-        icon: 'uil uil-estate',
-        router: ['/']
-      },
-      // {
-      //   name: 'Admin',
-      //   icon: 'uil uil-shield-exclamation',
-      //   router: ['/', 'admin']
-      // },
-      {
-        name: 'Agregar Usuario',
-        icon: 'uil uil-plus',
-        router: ['/', 'register']
-      },
-      {
-        name: 'Actualizar Usuario',
-        icon: 'uil uil-edit-alt',
-        router: ['/', 'actualizar']
-      },
-    ]
+    this.authSvc.Admin.subscribe(res => this.isAdmin = res)
+
+    if(this.isAdmin){ // Admin | Moderator menu
+      this.mainMenu.defaultOptions=[
+        {
+          name: 'Remesas',
+          icon: 'uil uil-estate',
+          router: ['/'],
+        },
+        {
+          name: 'Agregar Usuario',
+          icon: 'uil uil-plus',
+          router: ['/', 'register'],
+        },
+        {
+          name: 'Actualizar Usuario',
+          icon: 'uil uil-edit-alt',
+          router: ['/', 'actualizar']
+        },
+      ]
+    }else{ // User menu
+      this.mainMenu.defaultOptions=[
+        {
+          name: 'Remesas',
+          icon: 'uil uil-estate',
+          router: ['/'],
+        },
+      ]
+    }
   }
 }
