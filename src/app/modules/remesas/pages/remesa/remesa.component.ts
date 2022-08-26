@@ -48,7 +48,7 @@ export class RemesaComponent implements OnInit, OnDestroy {
     const observer2$: Subscription = this.sendDataSvc.searchRem.subscribe(
       async (response: string) => {
         if (response !== '') {
-          response.toLocaleUpperCase()
+          response = response.toUpperCase()
           
           if(this.remesaData.length === 0){
             this.filter = this.remesaData
@@ -82,7 +82,6 @@ export class RemesaComponent implements OnInit, OnDestroy {
         data = response
         this.remesaData = data
         this.spinner = false
-        // console.log('rendering')
       })
   }
 }

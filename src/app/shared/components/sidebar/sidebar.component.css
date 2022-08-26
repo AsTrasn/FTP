@@ -44,6 +44,12 @@
 
 .side-bar__list li {
   cursor: pointer;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+.side-bar__list li:hover {
+  background: #424e8b;
 }
 
 .uil-bars{

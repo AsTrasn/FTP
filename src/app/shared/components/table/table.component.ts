@@ -39,7 +39,6 @@ export class TableComponent implements OnInit, OnChanges {
   constructor(private remSvc: RemesasService) {}
 
   ngOnChanges(): void {
-    // this.spinner = false
     this.dataSource = new MatTableDataSource<any>(this.dataTable);
     this.dataSource.paginator = this.paginator;
     this.spinner = this.spinner
@@ -50,13 +49,6 @@ export class TableComponent implements OnInit, OnChanges {
 
   searched(column:any):void{
     this.query = this.remSeached
-    if(this.query && this.query !== null && this.query !== undefined && this.query !== '' && column){
-      console.log(column)
-      console.log(`buscando ${this.query} en la columna ${column}`)
-
-      // this.dataTable.filter(rem => rem.Remesas[0])
-      // let filteredData = this.dataTable.map((rem:any) => console.log(JSON(column)))
-    }
     this.query = null
   }
 
