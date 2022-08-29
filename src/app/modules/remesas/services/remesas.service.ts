@@ -35,7 +35,7 @@ export class RemesasService {
   downloadPDF$(name:string, month:string, year:string): Observable<any>{
     console.log(name, month, year)
     let body = { remesa: name, mes: month, año: year }
-    return this.httpClient.post(`${this.URL}/remittances/files`, body)
+    return this.httpClient.post(`https://localhost:8448/remittances/files/`, body)
     .pipe(
       map((res:any) =>{
         // console.log(res)
